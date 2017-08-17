@@ -48,7 +48,7 @@ impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/filters/{filterName}{}", configuration.base_path, finished_query, filterName=filter_name);
+        let uri_str = format!("{}/filters/{filterName}?{}", configuration.base_path, finished_query, filterName=filter_name);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -88,7 +88,7 @@ impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/filters{}", configuration.base_path, finished_query);
+        let uri_str = format!("{}/filters?{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error

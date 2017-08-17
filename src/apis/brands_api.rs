@@ -72,7 +72,7 @@ impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/brands{}", configuration.base_path, finished_query);
+        let uri_str = format!("{}/brands?{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -112,7 +112,7 @@ impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/brands/{key}{}", configuration.base_path, finished_query, key=key);
+        let uri_str = format!("{}/brands/{key}?{}", configuration.base_path, finished_query, key=key);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error

@@ -85,7 +85,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/article-reviews{}", configuration.base_path, finished_query);
+        let uri_str = format!("{}/article-reviews?{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -125,7 +125,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/article-reviews/{reviewId}{}", configuration.base_path, finished_query, reviewId=review_id);
+        let uri_str = format!("{}/article-reviews/{reviewId}?{}", configuration.base_path, finished_query, reviewId=review_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -165,7 +165,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/article-reviews-summaries/{articleModelId}{}", configuration.base_path, finished_query, articleModelId=article_model_id);
+        let uri_str = format!("{}/article-reviews-summaries/{articleModelId}?{}", configuration.base_path, finished_query, articleModelId=article_model_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -214,7 +214,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/article-reviews-summaries{}", configuration.base_path, finished_query);
+        let uri_str = format!("{}/article-reviews-summaries?{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -254,7 +254,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/articles/{articleId}{}", configuration.base_path, finished_query, articleId=article_id);
+        let uri_str = format!("{}/articles/{articleId}?{}", configuration.base_path, finished_query, articleId=article_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -294,7 +294,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/articles/{articleId}/media{}", configuration.base_path, finished_query, articleId=article_id);
+        let uri_str = format!("{}/articles/{articleId}/media?{}", configuration.base_path, finished_query, articleId=article_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -354,7 +354,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/articles/{articleId}/reviews{}", configuration.base_path, finished_query, articleId=article_id);
+        let uri_str = format!("{}/articles/{articleId}/reviews?{}", configuration.base_path, finished_query, articleId=article_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -394,7 +394,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/articles/{articleId}/reviews-summary{}", configuration.base_path, finished_query, articleId=article_id);
+        let uri_str = format!("{}/articles/{articleId}/reviews-summary?{}", configuration.base_path, finished_query, articleId=article_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -434,7 +434,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/articles/{articleId}/units{}", configuration.base_path, finished_query, articleId=article_id);
+        let uri_str = format!("{}/articles/{articleId}/units?{}", configuration.base_path, finished_query, articleId=article_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -474,7 +474,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/articles/{articleId}/units/{unitId}{}", configuration.base_path, finished_query, articleId=article_id, unitId=unit_id);
+        let uri_str = format!("{}/articles/{articleId}/units/{unitId}?{}", configuration.base_path, finished_query, articleId=article_id, unitId=unit_id);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -662,7 +662,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/articles{}", configuration.base_path, finished_query);
+        let uri_str = format!("{}/articles?{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error

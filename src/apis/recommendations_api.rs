@@ -51,7 +51,7 @@ impl<C: hyper::client::Connect>RecommendationsApi for RecommendationsApiClient<C
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/recommendations/{articleIds}{}", configuration.base_path, finished_query, articleIds=article_ids.join(","));
+        let uri_str = format!("{}/recommendations/{articleIds}?{}", configuration.base_path, finished_query, articleIds=article_ids.join(","));
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error

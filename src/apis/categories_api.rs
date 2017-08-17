@@ -92,7 +92,7 @@ impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/categories{}", configuration.base_path, finished_query);
+        let uri_str = format!("{}/categories?{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -132,7 +132,7 @@ impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
            None=>{},
         }
         let finished_query=query.finish();
-        let uri_str = format!("{}/categories/{key}{}", configuration.base_path, finished_query, key=key.join(","));
+        let uri_str = format!("{}/categories/{key}?{}", configuration.base_path, finished_query, key=key.join(","));
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
