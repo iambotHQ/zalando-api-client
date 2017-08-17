@@ -10,7 +10,7 @@
 
 /// ArticlePrice : Zalando API Article Price Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticlePrice {
   /// 
   #[serde(rename = "currency")] currency: String,

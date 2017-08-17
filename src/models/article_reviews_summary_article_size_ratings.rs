@@ -10,7 +10,7 @@
 
 /// ArticleReviewsSummaryArticleSizeRatings : size rating of the article
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleReviewsSummaryArticleSizeRatings {
   #[serde(rename = "OVERALL")] OVERALL: Option<f32>,
   #[serde(rename = "CHEST")] CHEST: Option<f32>,

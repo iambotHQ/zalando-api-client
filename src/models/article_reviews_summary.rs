@@ -10,7 +10,7 @@
 
 /// ArticleReviewsSummary : Zalando API Article Reviews Summary Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleReviewsSummary {
   #[serde(rename = "articleModelId")] article_model_id: String,
   /// average star rating of the article

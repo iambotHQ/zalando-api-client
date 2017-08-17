@@ -10,7 +10,7 @@
 
 /// BrandFamily : Zalando API BrandFamily Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct BrandFamily {
   /// The unique key for a brandFamily
   #[serde(rename = "key")] key: String,

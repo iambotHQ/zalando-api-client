@@ -36,7 +36,7 @@ pub trait DomainsApi {
 
 
 impl<C: hyper::client::Connect>DomainsApi for DomainsApiClient<C> {
-    fn DomainsGet(&self, ) -> Box<Future<Item = Vec<::models::Domain>, Error = Error>> {
+   fn DomainsGet(&self, ) -> Box<Future<Item = Vec<::models::Domain>, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;

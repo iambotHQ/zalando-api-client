@@ -10,7 +10,7 @@
 
 /// Categories : Zalando API Paged Categories Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Categories {
   /// total elements in the response
   #[serde(rename = "totalElements")] total_elements: i32,

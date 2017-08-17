@@ -10,7 +10,7 @@
 
 /// Domain : Zalando API Domain Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Domain {
   /// domain language
   #[serde(rename = "languageCode")] language_code: String,

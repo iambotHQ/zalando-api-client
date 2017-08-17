@@ -9,7 +9,7 @@
  */
 
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ErrorDetail {
   #[serde(rename = "key")] key: Option<String>,
   #[serde(rename = "value")] value: Option<String>,

@@ -9,7 +9,7 @@
  */
 
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ErrorMessage {
   #[serde(rename = "status")] status: i32,
   #[serde(rename = "message")] message: String,

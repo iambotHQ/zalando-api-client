@@ -10,7 +10,7 @@
 
 /// ArticleUnit : Zalando API Article Unit Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleUnit {
   /// article id (sku)
   #[serde(rename = "id")] id: String,

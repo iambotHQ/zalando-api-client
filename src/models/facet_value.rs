@@ -10,7 +10,7 @@
 
 /// FacetValue : Zalando API FacetValue Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct FacetValue {
   #[serde(rename = "key")] key: String,
   #[serde(rename = "displayName")] display_name: String,

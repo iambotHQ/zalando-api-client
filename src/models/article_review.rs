@@ -10,7 +10,7 @@
 
 /// ArticleReview : Zalando API Article Review Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleReview {
   /// unique article review id
   #[serde(rename = "reviewId")] review_id: String,

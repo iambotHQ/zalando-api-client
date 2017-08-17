@@ -10,7 +10,7 @@
 
 /// FilterValue : Zalando API FilterValue Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct FilterValue {
   /// The key for a filterValue. Only unique within one filter
   #[serde(rename = "key")] key: String,

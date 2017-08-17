@@ -10,7 +10,7 @@
 
 /// Articles : A simple container object that carries paging information as well as a list of articles on the `content` property.
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Articles {
   /// total elements in the response
   #[serde(rename = "totalElements")] total_elements: i32,

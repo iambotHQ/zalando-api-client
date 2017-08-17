@@ -10,7 +10,7 @@
 
 /// Recommendations : Zalando API Recommendations Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Recommendations {
 }
 

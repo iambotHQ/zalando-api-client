@@ -10,7 +10,7 @@
 
 /// ArticleUnits : Zalando API Article Units Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleUnits {
 }
 

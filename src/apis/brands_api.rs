@@ -37,7 +37,7 @@ pub trait BrandsApi {
 
 
 impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
-    fn BrandsGet(&self, key: Option<Vec<String>>, name: Option<Vec<String>>, brand_family_name: Option<Vec<String>>, brand_family_key: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brands, Error = Error>> {
+   fn BrandsGet(&self, key: Option<Vec<String>>, name: Option<Vec<String>>, brand_family_name: Option<Vec<String>>, brand_family_key: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brands, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -101,7 +101,7 @@ impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
         )
     }
 
-    fn BrandsKeyGet(&self, key: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brand, Error = Error>> {
+   fn BrandsKeyGet(&self, key: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brand, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;

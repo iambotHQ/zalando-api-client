@@ -10,7 +10,7 @@
 
 /// RecommendationsArticle : Zalando API Recommendation Article Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct RecommendationsArticle {
   #[serde(rename = "id")] id: String,
   #[serde(rename = "modelId")] model_id: String,

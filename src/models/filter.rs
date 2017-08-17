@@ -10,7 +10,7 @@
 
 /// Filter : Zalando API Filter Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Filter {
   /// The unique name for a filter
   #[serde(rename = "name")] name: String,

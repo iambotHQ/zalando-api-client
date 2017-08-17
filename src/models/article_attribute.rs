@@ -10,7 +10,7 @@
 
 /// ArticleAttribute : Zalando API Article Attribute Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleAttribute {
   /// name of the article attribute
   #[serde(rename = "name")] name: String,

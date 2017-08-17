@@ -10,7 +10,7 @@
 
 /// Brand : Zalando API Brand Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Brand {
   /// The unique key for a brand
   #[serde(rename = "key")] key: String,

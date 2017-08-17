@@ -10,7 +10,7 @@
 
 /// Article : A single article
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Article {
   /// unique article id
   #[serde(rename = "id")] id: String,

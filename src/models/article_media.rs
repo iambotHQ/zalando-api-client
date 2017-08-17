@@ -10,7 +10,7 @@
 
 /// ArticleMedia : Zalando API Article Media Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleMedia {
   #[serde(rename = "images")] images: Vec<::models::ArticleImage>
 }

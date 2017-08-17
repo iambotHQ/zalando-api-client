@@ -10,7 +10,7 @@
 
 /// ArticleReviewsSummaries : Zalando API Paged Article Reviews Summaries Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleReviewsSummaries {
   /// total elements in the response
   #[serde(rename = "totalElements")] total_elements: i32,

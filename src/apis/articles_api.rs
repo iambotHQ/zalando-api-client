@@ -46,7 +46,7 @@ pub trait ArticlesApi {
 
 
 impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
-    fn ArticleReviewsGet(&self, article_id: Option<Vec<String>>, article_model_id: Option<Vec<String>>, min_star_rating: Option<&str>, max_star_rating: Option<&str>, sort: Option<&str>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviews, Error = Error>> {
+   fn ArticleReviewsGet(&self, article_id: Option<Vec<String>>, article_model_id: Option<Vec<String>>, min_star_rating: Option<&str>, max_star_rating: Option<&str>, sort: Option<&str>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviews, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -114,7 +114,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticleReviewsReviewIdGet(&self, review_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReview, Error = Error>> {
+   fn ArticleReviewsReviewIdGet(&self, review_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReview, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -154,7 +154,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticleReviewsSummariesArticleModelIdGet(&self, article_model_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviewsSummary, Error = Error>> {
+   fn ArticleReviewsSummariesArticleModelIdGet(&self, article_model_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviewsSummary, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -194,7 +194,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticleReviewsSummariesGet(&self, article_model_id: Vec<String>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviewsSummaries, Error = Error>> {
+   fn ArticleReviewsSummariesGet(&self, article_model_id: Vec<String>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviewsSummaries, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -243,7 +243,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticlesArticleIdGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Article, Error = Error>> {
+   fn ArticlesArticleIdGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Article, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -283,7 +283,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticlesArticleIdMediaGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleMedia, Error = Error>> {
+   fn ArticlesArticleIdMediaGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleMedia, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -323,7 +323,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticlesArticleIdReviewsGet(&self, article_id: &str, min_star_rating: Option<&str>, max_star_rating: Option<&str>, sort: Option<&str>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviews, Error = Error>> {
+   fn ArticlesArticleIdReviewsGet(&self, article_id: &str, min_star_rating: Option<&str>, max_star_rating: Option<&str>, sort: Option<&str>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviews, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -383,7 +383,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticlesArticleIdReviewsSummaryGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviewsSummary, Error = Error>> {
+   fn ArticlesArticleIdReviewsSummaryGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleReviewsSummary, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -423,7 +423,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticlesArticleIdUnitsGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleUnits, Error = Error>> {
+   fn ArticlesArticleIdUnitsGet(&self, article_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleUnits, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -463,7 +463,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticlesArticleIdUnitsUnitIdGet(&self, article_id: &str, unit_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleUnit, Error = Error>> {
+   fn ArticlesArticleIdUnitsUnitIdGet(&self, article_id: &str, unit_id: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::ArticleUnit, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -503,7 +503,7 @@ impl<C: hyper::client::Connect>ArticlesApi for ArticlesApiClient<C> {
         )
     }
 
-    fn ArticlesGet(&self, article_id: Option<Vec<String>>, article_model_id: Option<Vec<String>>, article_unit_id: Option<Vec<String>>, activation_date: Option<Vec<String>>, age_group: Option<Vec<String>>, assortment_area: Option<Vec<String>>, brand: Option<Vec<String>>, brandfamily: Option<Vec<String>>, category: Option<Vec<String>>, color: Option<Vec<String>>, den: Option<Vec<String>>, filling: Option<Vec<String>>, full_text: Option<&str>, gender: Option<Vec<String>>, heel_form: Option<Vec<String>>, heel_height: Option<Vec<String>>, length: Option<&str>, occasion: Option<Vec<String>>, pattern: Option<Vec<String>>, price: Option<&str>, sale: Option<Vec<String>>, season: Option<Vec<String>>, shaft_height: Option<Vec<String>>, shaft_width: Option<Vec<String>>, shirt_collar: Option<Vec<String>>, shoe_fastener: Option<Vec<String>>, shoe_toecap: Option<Vec<String>>, shop_area: Option<Vec<String>>, size: Option<&str>, sports: Option<Vec<String>>, technology: Option<Vec<String>>, trouser_rise: Option<Vec<String>>, upper_material: Option<Vec<String>>, volume: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, sort: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Articles, Error = Error>> {
+   fn ArticlesGet(&self, article_id: Option<Vec<String>>, article_model_id: Option<Vec<String>>, article_unit_id: Option<Vec<String>>, activation_date: Option<Vec<String>>, age_group: Option<Vec<String>>, assortment_area: Option<Vec<String>>, brand: Option<Vec<String>>, brandfamily: Option<Vec<String>>, category: Option<Vec<String>>, color: Option<Vec<String>>, den: Option<Vec<String>>, filling: Option<Vec<String>>, full_text: Option<&str>, gender: Option<Vec<String>>, heel_form: Option<Vec<String>>, heel_height: Option<Vec<String>>, length: Option<&str>, occasion: Option<Vec<String>>, pattern: Option<Vec<String>>, price: Option<&str>, sale: Option<Vec<String>>, season: Option<Vec<String>>, shaft_height: Option<Vec<String>>, shaft_width: Option<Vec<String>>, shirt_collar: Option<Vec<String>>, shoe_fastener: Option<Vec<String>>, shoe_toecap: Option<Vec<String>>, shop_area: Option<Vec<String>>, size: Option<&str>, sports: Option<Vec<String>>, technology: Option<Vec<String>>, trouser_rise: Option<Vec<String>>, upper_material: Option<Vec<String>>, volume: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, sort: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Articles, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;

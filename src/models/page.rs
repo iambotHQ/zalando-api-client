@@ -10,7 +10,7 @@
 
 /// Page : wrapper object for paged responses
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Page {
   /// total elements in the response
   #[serde(rename = "totalElements")] total_elements: i32,

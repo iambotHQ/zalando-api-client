@@ -37,7 +37,7 @@ pub trait CategoriesApi {
 
 
 impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
-    fn CategoriesGet(&self, name: Option<Vec<String>>, _type: Option<&str>, outlet: Option<&str>, hidden: Option<&str>, target_group: Option<&str>, key: Option<Vec<String>>, parent_key: Option<Vec<String>>, child_key: Option<Vec<String>>, suggested_filter: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Categories, Error = Error>> {
+   fn CategoriesGet(&self, name: Option<Vec<String>>, _type: Option<&str>, outlet: Option<&str>, hidden: Option<&str>, target_group: Option<&str>, key: Option<Vec<String>>, parent_key: Option<Vec<String>>, child_key: Option<Vec<String>>, suggested_filter: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Categories, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -121,7 +121,7 @@ impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
         )
     }
 
-    fn CategoriesKeyGet(&self, key: Vec<String>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Category, Error = Error>> {
+   fn CategoriesKeyGet(&self, key: Vec<String>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Category, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;

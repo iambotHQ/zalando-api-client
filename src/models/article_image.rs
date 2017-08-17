@@ -10,7 +10,7 @@
 
 /// ArticleImage : Zalando API Article Image Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleImage {
   /// sequence of the article images
   #[serde(rename = "orderNumber")] order_number: i32,

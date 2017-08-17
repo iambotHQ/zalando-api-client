@@ -10,7 +10,7 @@
 
 /// Facet : Zalando API Facet Schema
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Facet {
   #[serde(rename = "filter")] filter: String,
   /// list of the calculated article counts for each filter value

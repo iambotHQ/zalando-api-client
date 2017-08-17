@@ -10,7 +10,7 @@
 
 /// ArticleReviewsSummaryStarRatingDistribution : start rating distribution of the article
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleReviewsSummaryStarRatingDistribution {
   #[serde(rename = "1")] var_1: i32,
   #[serde(rename = "2")] var_2: i32,

@@ -37,7 +37,7 @@ pub trait FiltersApi {
 
 
 impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
-    fn FiltersFilterNameGet(&self, filter_name: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filter, Error = Error>> {
+   fn FiltersFilterNameGet(&self, filter_name: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filter, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
@@ -77,7 +77,7 @@ impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
         )
     }
 
-    fn FiltersGet(&self, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filters, Error = Error>> {
+   fn FiltersGet(&self, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filters, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;

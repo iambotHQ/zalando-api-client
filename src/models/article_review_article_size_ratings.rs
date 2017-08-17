@@ -10,7 +10,7 @@
 
 /// ArticleReviewArticleSizeRatings : 
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ArticleReviewArticleSizeRatings {
   #[serde(rename = "OVERALL")] OVERALL: Option<i32>,
   #[serde(rename = "CHEST")] CHEST: Option<i32>,

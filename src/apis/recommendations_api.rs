@@ -36,7 +36,7 @@ pub trait RecommendationsApi {
 
 
 impl<C: hyper::client::Connect>RecommendationsApi for RecommendationsApiClient<C> {
-    fn RecommendationsArticleIdsGet(&self, article_ids: Vec<String>, max_results: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Recommendations, Error = Error>> {
+   fn RecommendationsArticleIdsGet(&self, article_ids: Vec<String>, max_results: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Recommendations, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
