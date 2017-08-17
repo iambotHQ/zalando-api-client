@@ -127,7 +127,7 @@ impl ArticleUnit {
     self
   }
 
-  pub fn partner_id(&self) -> &String {
+  pub fn partner_id(&self) -> &Option<String> {
     &self.partner_id
   }
 

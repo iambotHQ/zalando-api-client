@@ -31,21 +31,27 @@ impl<C: hyper::client::Connect> RecommendationsApiClient<C> {
 }
 
 pub trait RecommendationsApi {
-    fn RecommendationsArticleIdsGet(&self, article_ids: Vec<String>, max_results: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Recommendations, Error = Error>>;
+    fn RecommendationsArticleIdsGet(&self, article_ids: Vec<String>, max_results: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Recommendations, Error = Error>>;
 }
 
 
 impl<C: hyper::client::Connect>RecommendationsApi for RecommendationsApiClient<C> {
-    fn RecommendationsArticleIdsGet(&self, article_ids: Vec<String>, max_results: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Recommendations, Error = Error>> {
+    fn RecommendationsArticleIdsGet(&self, article_ids: Vec<String>, max_results: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Recommendations, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("maxResults", &max_results.to_string())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/recommendations/{articleIds}{}", configuration.base_path, query, articleIds=article_ids.join(",").as_ref());
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match max_results{
+           Some(value)=>{query.append_pair("maxResults", &value.to_string());},
+           None=>{},
+        }
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/recommendations/{articleIds}{}", configuration.base_path, finished_query, articleIds=article_ids.join(","));
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -56,7 +62,10 @@ impl<C: hyper::client::Connect>RecommendationsApi for RecommendationsApiClient<C
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 

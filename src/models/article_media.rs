@@ -32,7 +32,7 @@ impl ArticleMedia {
     self
   }
 
-  pub fn images(&self) -> &Vec&lt;::models::ArticleImage&gt; {
+  pub fn images(&self) -> &Vec<::models::ArticleImage> {
     &self.images
   }
 

@@ -31,21 +31,24 @@ impl<C: hyper::client::Connect> FiltersApiClient<C> {
 }
 
 pub trait FiltersApi {
-    fn FiltersFilterNameGet(&self, filter_name: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Filter, Error = Error>>;
-    fn FiltersGet(&self, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Filters, Error = Error>>;
+    fn FiltersFilterNameGet(&self, filter_name: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filter, Error = Error>>;
+    fn FiltersGet(&self, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filters, Error = Error>>;
 }
 
 
 impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
-    fn FiltersFilterNameGet(&self, filter_name: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Filter, Error = Error>> {
+    fn FiltersFilterNameGet(&self, filter_name: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filter, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/filters/{filterName}{}", configuration.base_path, query, filterName=filter_name);
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/filters/{filterName}{}", configuration.base_path, finished_query, filterName=filter_name);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -56,7 +59,10 @@ impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 
@@ -71,15 +77,18 @@ impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
         )
     }
 
-    fn FiltersGet(&self, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Filters, Error = Error>> {
+    fn FiltersGet(&self, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Filters, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/filters{}", configuration.base_path, query);
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/filters{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -90,7 +99,10 @@ impl<C: hyper::client::Connect>FiltersApi for FiltersApiClient<C> {
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 

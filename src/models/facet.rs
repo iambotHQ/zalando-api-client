@@ -48,7 +48,7 @@ impl Facet {
     self
   }
 
-  pub fn facets(&self) -> &Vec&lt;::models::FacetValue&gt; {
+  pub fn facets(&self) -> &Vec<::models::FacetValue> {
     &self.facets
   }
 

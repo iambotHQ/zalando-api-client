@@ -31,32 +31,68 @@ impl<C: hyper::client::Connect> CategoriesApiClient<C> {
 }
 
 pub trait CategoriesApi {
-    fn CategoriesGet(&self, name: Vec<String>, _type: &str, outlet: &str, hidden: &str, target_group: &str, key: Vec<String>, parent_key: Vec<String>, child_key: Vec<String>, suggested_filter: Vec<String>, page: &str, page_size: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Categories, Error = Error>>;
-    fn CategoriesKeyGet(&self, key: Vec<String>, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Category, Error = Error>>;
+    fn CategoriesGet(&self, name: Option<Vec<String>>, _type: Option<&str>, outlet: Option<&str>, hidden: Option<&str>, target_group: Option<&str>, key: Option<Vec<String>>, parent_key: Option<Vec<String>>, child_key: Option<Vec<String>>, suggested_filter: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Categories, Error = Error>>;
+    fn CategoriesKeyGet(&self, key: Vec<String>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Category, Error = Error>>;
 }
 
 
 impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
-    fn CategoriesGet(&self, name: Vec<String>, _type: &str, outlet: &str, hidden: &str, target_group: &str, key: Vec<String>, parent_key: Vec<String>, child_key: Vec<String>, suggested_filter: Vec<String>, page: &str, page_size: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Categories, Error = Error>> {
+    fn CategoriesGet(&self, name: Option<Vec<String>>, _type: Option<&str>, outlet: Option<&str>, hidden: Option<&str>, target_group: Option<&str>, key: Option<Vec<String>>, parent_key: Option<Vec<String>>, child_key: Option<Vec<String>>, suggested_filter: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Categories, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("name", &name.join(",").to_string())
-            .append_pair("type", &_type.to_string())
-            .append_pair("outlet", &outlet.to_string())
-            .append_pair("hidden", &hidden.to_string())
-            .append_pair("targetGroup", &target_group.to_string())
-            .append_pair("key", &key.join(",").to_string())
-            .append_pair("parentKey", &parent_key.join(",").to_string())
-            .append_pair("childKey", &child_key.join(",").to_string())
-            .append_pair("suggestedFilter", &suggested_filter.join(",").to_string())
-            .append_pair("page", &page.to_string())
-            .append_pair("pageSize", &page_size.to_string())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/categories{}", configuration.base_path, query);
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match name{
+           Some(value)=>{query.append_pair("name", &value.join(",").to_string());},
+           None=>{},
+        }
+        match _type{
+           Some(value)=>{query.append_pair("type", &value.to_string());},
+           None=>{},
+        }
+        match outlet{
+           Some(value)=>{query.append_pair("outlet", &value.to_string());},
+           None=>{},
+        }
+        match hidden{
+           Some(value)=>{query.append_pair("hidden", &value.to_string());},
+           None=>{},
+        }
+        match target_group{
+           Some(value)=>{query.append_pair("targetGroup", &value.to_string());},
+           None=>{},
+        }
+        match key{
+           Some(value)=>{query.append_pair("key", &value.join(",").to_string());},
+           None=>{},
+        }
+        match parent_key{
+           Some(value)=>{query.append_pair("parentKey", &value.join(",").to_string());},
+           None=>{},
+        }
+        match child_key{
+           Some(value)=>{query.append_pair("childKey", &value.join(",").to_string());},
+           None=>{},
+        }
+        match suggested_filter{
+           Some(value)=>{query.append_pair("suggestedFilter", &value.join(",").to_string());},
+           None=>{},
+        }
+        match page{
+           Some(value)=>{query.append_pair("page", &value.to_string());},
+           None=>{},
+        }
+        match page_size{
+           Some(value)=>{query.append_pair("pageSize", &value.to_string());},
+           None=>{},
+        }
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/categories{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -67,7 +103,10 @@ impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 
@@ -82,15 +121,18 @@ impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
         )
     }
 
-    fn CategoriesKeyGet(&self, key: Vec<String>, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Category, Error = Error>> {
+    fn CategoriesKeyGet(&self, key: Vec<String>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Category, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/categories/{key}{}", configuration.base_path, query, key=key.join(",").as_ref());
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/categories/{key}{}", configuration.base_path, finished_query, key=key.join(","));
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -101,7 +143,10 @@ impl<C: hyper::client::Connect>CategoriesApi for CategoriesApiClient<C> {
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 

@@ -54,7 +54,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn OVERALL(&self) -> &i32 {
+  pub fn OVERALL(&self) -> &Option<i32> {
     &self.OVERALL
   }
 
@@ -67,7 +67,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn CHEST(&self) -> &i32 {
+  pub fn CHEST(&self) -> &Option<i32> {
     &self.CHEST
   }
 
@@ -80,7 +80,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn SLEEVES(&self) -> &i32 {
+  pub fn SLEEVES(&self) -> &Option<i32> {
     &self.SLEEVES
   }
 
@@ -93,7 +93,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn SHOULDERS(&self) -> &i32 {
+  pub fn SHOULDERS(&self) -> &Option<i32> {
     &self.SHOULDERS
   }
 
@@ -106,7 +106,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn LENGTH(&self) -> &i32 {
+  pub fn LENGTH(&self) -> &Option<i32> {
     &self.LENGTH
   }
 
@@ -119,7 +119,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn LEG_FIT(&self) -> &i32 {
+  pub fn LEG_FIT(&self) -> &Option<i32> {
     &self.LEG_FIT
   }
 
@@ -132,7 +132,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn SHOE_WIDTH(&self) -> &i32 {
+  pub fn SHOE_WIDTH(&self) -> &Option<i32> {
     &self.SHOE_WIDTH
   }
 
@@ -145,7 +145,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn BOOTLEG_WIDTH(&self) -> &i32 {
+  pub fn BOOTLEG_WIDTH(&self) -> &Option<i32> {
     &self.BOOTLEG_WIDTH
   }
 
@@ -158,7 +158,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn HIPS_OR_REAR(&self) -> &i32 {
+  pub fn HIPS_OR_REAR(&self) -> &Option<i32> {
     &self.HIPS_OR_REAR
   }
 
@@ -171,7 +171,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn CUP_SIZE(&self) -> &i32 {
+  pub fn CUP_SIZE(&self) -> &Option<i32> {
     &self.CUP_SIZE
   }
 
@@ -184,7 +184,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn CHEST_GIRTH(&self) -> &i32 {
+  pub fn CHEST_GIRTH(&self) -> &Option<i32> {
     &self.CHEST_GIRTH
   }
 
@@ -197,7 +197,7 @@ impl ArticleReviewArticleSizeRatings {
     self
   }
 
-  pub fn COLLAR_SIZE(&self) -> &i32 {
+  pub fn COLLAR_SIZE(&self) -> &Option<i32> {
     &self.COLLAR_SIZE
   }
 

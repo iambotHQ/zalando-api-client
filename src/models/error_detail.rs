@@ -38,7 +38,7 @@ impl ErrorDetail {
     self
   }
 
-  pub fn key(&self) -> &String {
+  pub fn key(&self) -> &Option<String> {
     &self.key
   }
 
@@ -51,7 +51,7 @@ impl ErrorDetail {
     self
   }
 
-  pub fn value(&self) -> &String {
+  pub fn value(&self) -> &Option<String> {
     &self.value
   }
 
@@ -64,7 +64,7 @@ impl ErrorDetail {
     self
   }
 
-  pub fn name(&self) -> &String {
+  pub fn name(&self) -> &Option<String> {
     &self.name
   }
 
@@ -77,7 +77,7 @@ impl ErrorDetail {
     self
   }
 
-  pub fn invalid_name(&self) -> &bool {
+  pub fn invalid_name(&self) -> &Option<bool> {
     &self.invalid_name
   }
 
@@ -90,7 +90,7 @@ impl ErrorDetail {
     self
   }
 
-  pub fn invalid_values(&self) -> &Vec&lt;String&gt; {
+  pub fn invalid_values(&self) -> &Option<Vec<String>> {
     &self.invalid_values
   }
 

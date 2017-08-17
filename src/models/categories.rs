@@ -96,7 +96,7 @@ impl Categories {
     self
   }
 
-  pub fn content(&self) -> &Vec&lt;::models::Category&gt; {
+  pub fn content(&self) -> &Vec<::models::Category> {
     &self.content
   }
 

@@ -198,7 +198,7 @@ impl Article {
     self
   }
 
-  pub fn additional_infos(&self) -> &Vec&lt;String&gt; {
+  pub fn additional_infos(&self) -> &Vec<String> {
     &self.additional_infos
   }
 
@@ -211,7 +211,7 @@ impl Article {
     self
   }
 
-  pub fn genders(&self) -> &Vec&lt;String&gt; {
+  pub fn genders(&self) -> &Vec<String> {
     &self.genders
   }
 
@@ -224,7 +224,7 @@ impl Article {
     self
   }
 
-  pub fn age_groups(&self) -> &Vec&lt;String&gt; {
+  pub fn age_groups(&self) -> &Vec<String> {
     &self.age_groups
   }
 
@@ -250,7 +250,7 @@ impl Article {
     self
   }
 
-  pub fn category_keys(&self) -> &Vec&lt;String&gt; {
+  pub fn category_keys(&self) -> &Vec<String> {
     &self.category_keys
   }
 
@@ -263,7 +263,7 @@ impl Article {
     self
   }
 
-  pub fn attributes(&self) -> &Vec&lt;::models::ArticleAttribute&gt; {
+  pub fn attributes(&self) -> &Vec<::models::ArticleAttribute> {
     &self.attributes
   }
 
@@ -276,7 +276,7 @@ impl Article {
     self
   }
 
-  pub fn units(&self) -> &Vec&lt;::models::ArticleUnit&gt; {
+  pub fn units(&self) -> &Vec<::models::ArticleUnit> {
     &self.units
   }
 
@@ -289,7 +289,7 @@ impl Article {
     self
   }
 
-  pub fn tags(&self) -> &Vec&lt;String&gt; {
+  pub fn tags(&self) -> &Option<Vec<String>> {
     &self.tags
   }
 

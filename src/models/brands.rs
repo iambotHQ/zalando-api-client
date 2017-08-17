@@ -96,7 +96,7 @@ impl Brands {
     self
   }
 
-  pub fn content(&self) -> &Vec&lt;::models::Brand&gt; {
+  pub fn content(&self) -> &Vec<::models::Brand> {
     &self.content
   }
 

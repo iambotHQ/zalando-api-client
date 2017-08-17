@@ -96,7 +96,7 @@ impl ArticleReviews {
     self
   }
 
-  pub fn content(&self) -> &Vec&lt;::models::ArticleReview&gt; {
+  pub fn content(&self) -> &Vec<::models::ArticleReview> {
     &self.content
   }
 

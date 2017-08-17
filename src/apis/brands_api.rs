@@ -31,27 +31,48 @@ impl<C: hyper::client::Connect> BrandsApiClient<C> {
 }
 
 pub trait BrandsApi {
-    fn BrandsGet(&self, key: Vec<String>, name: Vec<String>, brand_family_name: Vec<String>, brand_family_key: Vec<String>, page: &str, page_size: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Brands, Error = Error>>;
-    fn BrandsKeyGet(&self, key: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Brand, Error = Error>>;
+    fn BrandsGet(&self, key: Option<Vec<String>>, name: Option<Vec<String>>, brand_family_name: Option<Vec<String>>, brand_family_key: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brands, Error = Error>>;
+    fn BrandsKeyGet(&self, key: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brand, Error = Error>>;
 }
 
 
 impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
-    fn BrandsGet(&self, key: Vec<String>, name: Vec<String>, brand_family_name: Vec<String>, brand_family_key: Vec<String>, page: &str, page_size: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Brands, Error = Error>> {
+    fn BrandsGet(&self, key: Option<Vec<String>>, name: Option<Vec<String>>, brand_family_name: Option<Vec<String>>, brand_family_key: Option<Vec<String>>, page: Option<&str>, page_size: Option<&str>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brands, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("key", &key.join(",").to_string())
-            .append_pair("name", &name.join(",").to_string())
-            .append_pair("brandFamilyName", &brand_family_name.join(",").to_string())
-            .append_pair("brandFamilyKey", &brand_family_key.join(",").to_string())
-            .append_pair("page", &page.to_string())
-            .append_pair("pageSize", &page_size.to_string())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/brands{}", configuration.base_path, query);
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match key{
+           Some(value)=>{query.append_pair("key", &value.join(",").to_string());},
+           None=>{},
+        }
+        match name{
+           Some(value)=>{query.append_pair("name", &value.join(",").to_string());},
+           None=>{},
+        }
+        match brand_family_name{
+           Some(value)=>{query.append_pair("brandFamilyName", &value.join(",").to_string());},
+           None=>{},
+        }
+        match brand_family_key{
+           Some(value)=>{query.append_pair("brandFamilyKey", &value.join(",").to_string());},
+           None=>{},
+        }
+        match page{
+           Some(value)=>{query.append_pair("page", &value.to_string());},
+           None=>{},
+        }
+        match page_size{
+           Some(value)=>{query.append_pair("pageSize", &value.to_string());},
+           None=>{},
+        }
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/brands{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -62,7 +83,10 @@ impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 
@@ -77,15 +101,18 @@ impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
         )
     }
 
-    fn BrandsKeyGet(&self, key: &str, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Brand, Error = Error>> {
+    fn BrandsKeyGet(&self, key: &str, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Brand, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/brands/{key}{}", configuration.base_path, query, key=key);
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/brands/{key}{}", configuration.base_path, finished_query, key=key);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -96,7 +123,10 @@ impl<C: hyper::client::Connect>BrandsApi for BrandsApiClient<C> {
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 

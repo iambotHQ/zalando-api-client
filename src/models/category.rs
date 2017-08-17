@@ -73,7 +73,7 @@ impl Category {
     self
   }
 
-  pub fn cid(&self) -> &i32 {
+  pub fn cid(&self) -> &Option<i32> {
     &self.cid
   }
 
@@ -99,7 +99,7 @@ impl Category {
     self
   }
 
-  pub fn parent_key(&self) -> &String {
+  pub fn parent_key(&self) -> &Option<String> {
     &self.parent_key
   }
 
@@ -112,7 +112,7 @@ impl Category {
     self
   }
 
-  pub fn child_keys(&self) -> &Vec&lt;String&gt; {
+  pub fn child_keys(&self) -> &Vec<String> {
     &self.child_keys
   }
 
@@ -125,7 +125,7 @@ impl Category {
     self
   }
 
-  pub fn _type(&self) -> &String {
+  pub fn _type(&self) -> &Option<String> {
     &self._type
   }
 
@@ -138,7 +138,7 @@ impl Category {
     self
   }
 
-  pub fn outlet(&self) -> &bool {
+  pub fn outlet(&self) -> &Option<bool> {
     &self.outlet
   }
 
@@ -151,7 +151,7 @@ impl Category {
     self
   }
 
-  pub fn hidden(&self) -> &bool {
+  pub fn hidden(&self) -> &Option<bool> {
     &self.hidden
   }
 
@@ -177,7 +177,7 @@ impl Category {
     self
   }
 
-  pub fn suggested_filters(&self) -> &Vec&lt;String&gt; {
+  pub fn suggested_filters(&self) -> &Vec<String> {
     &self.suggested_filters
   }
 

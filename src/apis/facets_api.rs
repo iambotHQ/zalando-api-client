@@ -31,52 +31,151 @@ impl<C: hyper::client::Connect> FacetsApiClient<C> {
 }
 
 pub trait FacetsApi {
-    fn FacetsGet(&self, age_group: Vec<String>, article_id: Vec<String>, activation_date: Vec<String>, article_model_id: Vec<String>, assortment_area: Vec<String>, brand: Vec<String>, brandfamily: Vec<String>, category: Vec<String>, color: Vec<String>, den: Vec<String>, filling: Vec<String>, gender: Vec<String>, heel_form: Vec<String>, heel_height: Vec<String>, length: &str, occasion: Vec<String>, pattern: Vec<String>, price: &str, sale: Vec<String>, season: Vec<String>, shaft_height: Vec<String>, shaft_width: Vec<String>, shirt_collar: Vec<String>, shoe_fastener: Vec<String>, shoe_toecap: Vec<String>, shop_area: Vec<String>, size: &str, sports: Vec<String>, technology: Vec<String>, trouser_rise: Vec<String>, upper_material: Vec<String>, volume: Vec<String>, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Facets, Error = Error>>;
+    fn FacetsGet(&self, age_group: Option<Vec<String>>, article_id: Option<Vec<String>>, activation_date: Option<Vec<String>>, article_model_id: Option<Vec<String>>, assortment_area: Option<Vec<String>>, brand: Option<Vec<String>>, brandfamily: Option<Vec<String>>, category: Option<Vec<String>>, color: Option<Vec<String>>, den: Option<Vec<String>>, filling: Option<Vec<String>>, gender: Option<Vec<String>>, heel_form: Option<Vec<String>>, heel_height: Option<Vec<String>>, length: Option<&str>, occasion: Option<Vec<String>>, pattern: Option<Vec<String>>, price: Option<&str>, sale: Option<Vec<String>>, season: Option<Vec<String>>, shaft_height: Option<Vec<String>>, shaft_width: Option<Vec<String>>, shirt_collar: Option<Vec<String>>, shoe_fastener: Option<Vec<String>>, shoe_toecap: Option<Vec<String>>, shop_area: Option<Vec<String>>, size: Option<&str>, sports: Option<Vec<String>>, technology: Option<Vec<String>>, trouser_rise: Option<Vec<String>>, upper_material: Option<Vec<String>>, volume: Option<Vec<String>>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Facets, Error = Error>>;
 }
 
 
 impl<C: hyper::client::Connect>FacetsApi for FacetsApiClient<C> {
-    fn FacetsGet(&self, age_group: Vec<String>, article_id: Vec<String>, activation_date: Vec<String>, article_model_id: Vec<String>, assortment_area: Vec<String>, brand: Vec<String>, brandfamily: Vec<String>, category: Vec<String>, color: Vec<String>, den: Vec<String>, filling: Vec<String>, gender: Vec<String>, heel_form: Vec<String>, heel_height: Vec<String>, length: &str, occasion: Vec<String>, pattern: Vec<String>, price: &str, sale: Vec<String>, season: Vec<String>, shaft_height: Vec<String>, shaft_width: Vec<String>, shirt_collar: Vec<String>, shoe_fastener: Vec<String>, shoe_toecap: Vec<String>, shop_area: Vec<String>, size: &str, sports: Vec<String>, technology: Vec<String>, trouser_rise: Vec<String>, upper_material: Vec<String>, volume: Vec<String>, accept_language: &str, fields: Vec<String>) -> Box<Future<Item = ::models::Facets, Error = Error>> {
+    fn FacetsGet(&self, age_group: Option<Vec<String>>, article_id: Option<Vec<String>>, activation_date: Option<Vec<String>>, article_model_id: Option<Vec<String>>, assortment_area: Option<Vec<String>>, brand: Option<Vec<String>>, brandfamily: Option<Vec<String>>, category: Option<Vec<String>>, color: Option<Vec<String>>, den: Option<Vec<String>>, filling: Option<Vec<String>>, gender: Option<Vec<String>>, heel_form: Option<Vec<String>>, heel_height: Option<Vec<String>>, length: Option<&str>, occasion: Option<Vec<String>>, pattern: Option<Vec<String>>, price: Option<&str>, sale: Option<Vec<String>>, season: Option<Vec<String>>, shaft_height: Option<Vec<String>>, shaft_width: Option<Vec<String>>, shirt_collar: Option<Vec<String>>, shoe_fastener: Option<Vec<String>>, shoe_toecap: Option<Vec<String>>, shop_area: Option<Vec<String>>, size: Option<&str>, sports: Option<Vec<String>>, technology: Option<Vec<String>>, trouser_rise: Option<Vec<String>>, upper_material: Option<Vec<String>>, volume: Option<Vec<String>>, accept_language: Option<&str>, fields: Option<Vec<String>>) -> Box<Future<Item = ::models::Facets, Error = Error>> {
         let configuration: &configuration::Configuration<C> = self.configuration.borrow();
 
         let method = hyper::Method::Get;
 
-        let query = ::url::form_urlencoded::Serializer::new(String::new())
-            .append_pair("ageGroup", &age_group.join(",").to_string())
-            .append_pair("articleId", &article_id.join(",").to_string())
-            .append_pair("activationDate", &activation_date.join(",").to_string())
-            .append_pair("articleModelId", &article_model_id.join(",").to_string())
-            .append_pair("assortmentArea", &assortment_area.join(",").to_string())
-            .append_pair("brand", &brand.join(",").to_string())
-            .append_pair("brandfamily", &brandfamily.join(",").to_string())
-            .append_pair("category", &category.join(",").to_string())
-            .append_pair("color", &color.join(",").to_string())
-            .append_pair("den", &den.join(",").to_string())
-            .append_pair("filling", &filling.join(",").to_string())
-            .append_pair("gender", &gender.join(",").to_string())
-            .append_pair("heelForm", &heel_form.join(",").to_string())
-            .append_pair("heelHeight", &heel_height.join(",").to_string())
-            .append_pair("length", &length.to_string())
-            .append_pair("occasion", &occasion.join(",").to_string())
-            .append_pair("pattern", &pattern.join(",").to_string())
-            .append_pair("price", &price.to_string())
-            .append_pair("sale", &sale.join(",").to_string())
-            .append_pair("season", &season.join(",").to_string())
-            .append_pair("shaftHeight", &shaft_height.join(",").to_string())
-            .append_pair("shaftWidth", &shaft_width.join(",").to_string())
-            .append_pair("shirtCollar", &shirt_collar.join(",").to_string())
-            .append_pair("shoeFastener", &shoe_fastener.join(",").to_string())
-            .append_pair("shoeToecap", &shoe_toecap.join(",").to_string())
-            .append_pair("shopArea", &shop_area.join(",").to_string())
-            .append_pair("size", &size.to_string())
-            .append_pair("sports", &sports.join(",").to_string())
-            .append_pair("technology", &technology.join(",").to_string())
-            .append_pair("trouserRise", &trouser_rise.join(",").to_string())
-            .append_pair("upperMaterial", &upper_material.join(",").to_string())
-            .append_pair("volume", &volume.join(",").to_string())
-            .append_pair("fields", &fields.join(",").to_string())
-            .finish();
-        let uri_str = format!("{}/facets{}", configuration.base_path, query);
+        let mut query = ::url::form_urlencoded::Serializer::new(String::new());
+        match age_group{
+           Some(value)=>{query.append_pair("ageGroup", &value.join(",").to_string());},
+           None=>{},
+        }
+        match article_id{
+           Some(value)=>{query.append_pair("articleId", &value.join(",").to_string());},
+           None=>{},
+        }
+        match activation_date{
+           Some(value)=>{query.append_pair("activationDate", &value.join(",").to_string());},
+           None=>{},
+        }
+        match article_model_id{
+           Some(value)=>{query.append_pair("articleModelId", &value.join(",").to_string());},
+           None=>{},
+        }
+        match assortment_area{
+           Some(value)=>{query.append_pair("assortmentArea", &value.join(",").to_string());},
+           None=>{},
+        }
+        match brand{
+           Some(value)=>{query.append_pair("brand", &value.join(",").to_string());},
+           None=>{},
+        }
+        match brandfamily{
+           Some(value)=>{query.append_pair("brandfamily", &value.join(",").to_string());},
+           None=>{},
+        }
+        match category{
+           Some(value)=>{query.append_pair("category", &value.join(",").to_string());},
+           None=>{},
+        }
+        match color{
+           Some(value)=>{query.append_pair("color", &value.join(",").to_string());},
+           None=>{},
+        }
+        match den{
+           Some(value)=>{query.append_pair("den", &value.join(",").to_string());},
+           None=>{},
+        }
+        match filling{
+           Some(value)=>{query.append_pair("filling", &value.join(",").to_string());},
+           None=>{},
+        }
+        match gender{
+           Some(value)=>{query.append_pair("gender", &value.join(",").to_string());},
+           None=>{},
+        }
+        match heel_form{
+           Some(value)=>{query.append_pair("heelForm", &value.join(",").to_string());},
+           None=>{},
+        }
+        match heel_height{
+           Some(value)=>{query.append_pair("heelHeight", &value.join(",").to_string());},
+           None=>{},
+        }
+        match length{
+           Some(value)=>{query.append_pair("length", &value.to_string());},
+           None=>{},
+        }
+        match occasion{
+           Some(value)=>{query.append_pair("occasion", &value.join(",").to_string());},
+           None=>{},
+        }
+        match pattern{
+           Some(value)=>{query.append_pair("pattern", &value.join(",").to_string());},
+           None=>{},
+        }
+        match price{
+           Some(value)=>{query.append_pair("price", &value.to_string());},
+           None=>{},
+        }
+        match sale{
+           Some(value)=>{query.append_pair("sale", &value.join(",").to_string());},
+           None=>{},
+        }
+        match season{
+           Some(value)=>{query.append_pair("season", &value.join(",").to_string());},
+           None=>{},
+        }
+        match shaft_height{
+           Some(value)=>{query.append_pair("shaftHeight", &value.join(",").to_string());},
+           None=>{},
+        }
+        match shaft_width{
+           Some(value)=>{query.append_pair("shaftWidth", &value.join(",").to_string());},
+           None=>{},
+        }
+        match shirt_collar{
+           Some(value)=>{query.append_pair("shirtCollar", &value.join(",").to_string());},
+           None=>{},
+        }
+        match shoe_fastener{
+           Some(value)=>{query.append_pair("shoeFastener", &value.join(",").to_string());},
+           None=>{},
+        }
+        match shoe_toecap{
+           Some(value)=>{query.append_pair("shoeToecap", &value.join(",").to_string());},
+           None=>{},
+        }
+        match shop_area{
+           Some(value)=>{query.append_pair("shopArea", &value.join(",").to_string());},
+           None=>{},
+        }
+        match size{
+           Some(value)=>{query.append_pair("size", &value.to_string());},
+           None=>{},
+        }
+        match sports{
+           Some(value)=>{query.append_pair("sports", &value.join(",").to_string());},
+           None=>{},
+        }
+        match technology{
+           Some(value)=>{query.append_pair("technology", &value.join(",").to_string());},
+           None=>{},
+        }
+        match trouser_rise{
+           Some(value)=>{query.append_pair("trouserRise", &value.join(",").to_string());},
+           None=>{},
+        }
+        match upper_material{
+           Some(value)=>{query.append_pair("upperMaterial", &value.join(",").to_string());},
+           None=>{},
+        }
+        match volume{
+           Some(value)=>{query.append_pair("volume", &value.join(",").to_string());},
+           None=>{},
+        }
+        match fields{
+           Some(value)=>{query.append_pair("fields", &value.join(",").to_string());},
+           None=>{},
+        }
+        let finished_query=query.finish();
+        let uri_str = format!("{}/facets{}", configuration.base_path, finished_query);
 
         let uri = uri_str.parse();
         // TODO(farcaller): handle error
@@ -87,7 +186,10 @@ impl<C: hyper::client::Connect>FacetsApi for FacetsApiClient<C> {
 
         {
             let mut headers = req.headers_mut();
-            headers.set_raw("Accept-Language", accept_language);
+            match accept_language{
+               Some(value)=>{headers.set_raw("Accept-Language", value);},
+               None=>{},
+            }
         }
 
 

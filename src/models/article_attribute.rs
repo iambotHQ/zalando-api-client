@@ -49,7 +49,7 @@ impl ArticleAttribute {
     self
   }
 
-  pub fn values(&self) -> &Vec&lt;String&gt; {
+  pub fn values(&self) -> &Vec<String> {
     &self.values
   }
 

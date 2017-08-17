@@ -60,7 +60,7 @@ impl ErrorMessage {
     self
   }
 
-  pub fn errors(&self) -> &Vec&lt;::models::ErrorDetail&gt; {
+  pub fn errors(&self) -> &Option<Vec<::models::ErrorDetail>> {
     &self.errors
   }
 

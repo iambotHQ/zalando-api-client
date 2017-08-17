@@ -113,7 +113,7 @@ impl ArticleReviewsSummary {
     self
   }
 
-  pub fn star_rating_distribution(&self) -> &::models::ArticleReviewsSummaryStarRatingDistribution {
+  pub fn star_rating_distribution(&self) -> &Option<::models::ArticleReviewsSummaryStarRatingDistribution> {
     &self.star_rating_distribution
   }
 
@@ -126,7 +126,7 @@ impl ArticleReviewsSummary {
     self
   }
 
-  pub fn article_size_ratings(&self) -> &::models::ArticleReviewsSummaryArticleSizeRatings {
+  pub fn article_size_ratings(&self) -> &Option<::models::ArticleReviewsSummaryArticleSizeRatings> {
     &self.article_size_ratings
   }
 

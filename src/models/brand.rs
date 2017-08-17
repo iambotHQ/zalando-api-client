@@ -86,7 +86,7 @@ impl Brand {
     self
   }
 
-  pub fn logo_url(&self) -> &String {
+  pub fn logo_url(&self) -> &Option<String> {
     &self.logo_url
   }
 
@@ -99,7 +99,7 @@ impl Brand {
     self
   }
 
-  pub fn logo_large_url(&self) -> &String {
+  pub fn logo_large_url(&self) -> &Option<String> {
     &self.logo_large_url
   }
 
@@ -112,7 +112,7 @@ impl Brand {
     self
   }
 
-  pub fn brand_family(&self) -> &::models::BrandFamily {
+  pub fn brand_family(&self) -> &Option<::models::BrandFamily> {
     &self.brand_family
   }
 

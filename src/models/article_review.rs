@@ -111,7 +111,7 @@ impl ArticleReview {
     self
   }
 
-  pub fn customer_nickname(&self) -> &String {
+  pub fn customer_nickname(&self) -> &Option<String> {
     &self.customer_nickname
   }
 
@@ -124,7 +124,7 @@ impl ArticleReview {
     self
   }
 
-  pub fn customer_city(&self) -> &String {
+  pub fn customer_city(&self) -> &Option<String> {
     &self.customer_city
   }
 
@@ -137,7 +137,7 @@ impl ArticleReview {
     self
   }
 
-  pub fn customer_country(&self) -> &String {
+  pub fn customer_country(&self) -> &Option<String> {
     &self.customer_country
   }
 
@@ -215,7 +215,7 @@ impl ArticleReview {
     self
   }
 
-  pub fn recommend(&self) -> &bool {
+  pub fn recommend(&self) -> &Option<bool> {
     &self.recommend
   }
 
@@ -254,7 +254,7 @@ impl ArticleReview {
     self
   }
 
-  pub fn article_size_ratings(&self) -> &::models::ArticleReviewArticleSizeRatings {
+  pub fn article_size_ratings(&self) -> &Option<::models::ArticleReviewArticleSizeRatings> {
     &self.article_size_ratings
   }
 

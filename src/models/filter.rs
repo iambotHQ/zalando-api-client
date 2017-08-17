@@ -81,7 +81,7 @@ impl Filter {
     self
   }
 
-  pub fn values(&self) -> &Vec&lt;::models::FilterValue&gt; {
+  pub fn values(&self) -> &Vec<::models::FilterValue> {
     &self.values
   }
 

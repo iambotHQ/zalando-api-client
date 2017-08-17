@@ -21,12 +21,12 @@ pub struct Page {
   /// total number of elements in a page
   #[serde(rename = "size")] size: i32,
   /// page content
-  #[serde(rename = "content")] content: Vec<::models::ErrorUnknown>
+  #[serde(rename = "content")] content: Vec<Option<String>>
 }
 
 impl Page {
   /// wrapper object for paged responses
-  pub fn new(total_elements: i32, total_pages: i32, page: i32, size: i32, content: Vec<::models::ErrorUnknown>) -> Page {
+  pub fn new(total_elements: i32, total_pages: i32, page: i32, size: i32, content: Vec<Option<String>>) -> Page {
     Page {
       total_elements: total_elements,
       total_pages: total_pages,
@@ -88,16 +88,16 @@ impl Page {
     &self.size
   }
 
-  pub fn set_content(&mut self, content: Vec<::models::ErrorUnknown>) {
+  pub fn set_content(&mut self, content: Vec<Option<String>>) {
     self.content = content;
   }
 
-  pub fn with_content(mut self, content: Vec<::models::ErrorUnknown>) -> Page {
+  pub fn with_content(mut self, content: Vec<Option<String>>) -> Page {
     self.content = content;
     self
   }
 
-  pub fn content(&self) -> &Vec&lt;::models::ErrorUnknown&gt; {
+  pub fn content(&self) -> &Vec<Option<String>> {
     &self.content
   }
 
