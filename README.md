@@ -1,4 +1,6 @@
-# Rust API client for swagger
+# Rust API client for Zalando API
+
+## IT WAS GENERATED USING OUR FORK OF SWAGGER BECAUSE OF PROBLEMS WITH RUST ON MASTER
 
 The shop API empowers developers to build amazing new apps or websites using Zalando shop data and services.
 
